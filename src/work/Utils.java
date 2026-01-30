@@ -6,6 +6,7 @@ public class Utils {
 
         for (int i = 0; i < taskGlavs.length ; i++) {
             Integer count = count_task_suces(taskGlavs[i]);
+            // Сдесь не правельна логика проерки там должно быть если он больше >=1
             if (taskGlavs[i].getTaskDelers().length==1)
             {
                 taskGlavs[i].setStatus(Status.inprogers);
@@ -45,7 +46,9 @@ public class Utils {
 
             taskDelers[i].setStatus(Status.done);
             if(count ==2)
-            {
+            {// сдесб не должно быть вызов это стуки протсо  нужно было else дописать
+                // и сделать при там break при i == 3 чтобы он не записал кортное число
+                // чтобы сделать вид что у нас толтко несколько выполднены
                 taskDelers[i].setStatus(Status.done);
                 count_done++;
                 if (i ==5)
