@@ -1,5 +1,8 @@
 package work;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class TaskGlav extends  Task{
     private  TaskDeler[] taskDelers =new TaskDeler[]{};
     public  TaskGlav(String name_task,Integer id ,TaskDeler[] data){
@@ -24,4 +27,24 @@ public class TaskGlav extends  Task{
     public void setTaskDelers(TaskDeler[] taskDelers) {
         this.taskDelers = taskDelers;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof TaskGlav taskGlav)) return false;
+        if (!super.equals(o)) return false;
+        return Objects.deepEquals(taskDelers, taskGlav.taskDelers);
+    }
+
+    @Override
+    public String toString() {
+        return "TaskGlav{" + super.toString()+
+                "\ntaskDelers=" + Arrays.toString(taskDelers) +
+                +'}'+"\n" ;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), Arrays.hashCode(taskDelers));
+    }
+
 }

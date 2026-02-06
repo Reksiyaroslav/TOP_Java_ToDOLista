@@ -6,13 +6,13 @@ public class Utils {
 
         for (int i = 0; i < taskGlavs.length ; i++) {
             Integer count = count_task_suces(taskGlavs[i]);
-            // Сдесь не правельна логика проерки там должно быть если он больше >=1
-            if (taskGlavs[i].getTaskDelers().length==1)
+            if (taskGlavs[i].getTaskDelers().length>1)
             {
                 taskGlavs[i].setStatus(Status.inprogers);
 
-            } else if (count==taskGlavs.length) {
-                count = 0;
+            }
+            if (count==taskGlavs[i].getTaskDelers().length) {
+
                 taskGlavs[i].setStatus(Status.done);
                 taskGlavs[i].Show();
             }
@@ -34,27 +34,32 @@ public class Utils {
                     continue;
                 }
             }
-        System.out.println(count);
         return  count;
     }
 
 
 
     public  void Update_status(TaskDeler[] taskDelers,Integer count ){
-        int count_done = 0;
         for (int i = 0; i < taskDelers.length; i++) {
 
-            taskDelers[i].setStatus(Status.done);
-            if(count ==2)
+
+            if(count ==1)
             {// сдесб не должно быть вызов это стуки протсо  нужно было else дописать
                 // и сделать при там break при i == 3 чтобы он не записал кортное число
                 // чтобы сделать вид что у нас толтко несколько выполднены
-                taskDelers[i].setStatus(Status.done);
-                count_done++;
-                if (i ==5)
+
+
+                if (i ==2)
                 {
                     break;
+                }else
+                {
+                    taskDelers[i].setStatus(Status.done);
                 }
+            }
+            else
+            {
+                taskDelers[i].setStatus(Status.done);
             }
         }
     }
