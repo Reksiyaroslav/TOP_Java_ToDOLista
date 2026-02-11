@@ -1,5 +1,8 @@
 package work;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Utils {
     // не работает коректоно
     public TaskGlav[] Status_Task(TaskGlav[] taskGlavs){
@@ -12,12 +15,13 @@ public class Utils {
 
             }
             if (count==taskGlavs[i].getTaskDelers().length) {
-
                 taskGlavs[i].setStatus(Status.done);
-                taskGlavs[i].Show();
+
+
             }
 
         }
+
         return  taskGlavs;
 
     }
@@ -29,9 +33,6 @@ public class Utils {
                 if (taskDelers[j].getStatus() == Status.done)
                 {
                     count++;
-                }else
-                {
-                    continue;
                 }
             }
         return  count;
@@ -52,7 +53,8 @@ public class Utils {
                 if (i ==2)
                 {
                     break;
-                }else
+                }
+                else
                 {
                     taskDelers[i].setStatus(Status.done);
                 }
@@ -62,5 +64,25 @@ public class Utils {
                 taskDelers[i].setStatus(Status.done);
             }
         }
+    }
+    public  static void Sort(TaskManager taskManager){
+        Comparator<Task> comparator = Comparator.comparing(Task::getStatus);
+        for (int i = 0; i < taskManager.getTaskGlavs().length; i++) {
+            Arrays.sort(taskManager.getTaskGlavs(), comparator);
+            Arrays.sort(taskManager.getTaskGlavs()[i].getTaskDelers(), comparator);
+
+        }
+    }
+    static public TaskGlav acherv(TaskGlav[] taskGlavs)
+    {
+
+        for (int i = 0; i < taskGlavs.length; i++) {
+            Status status = taskGlavs[i].getStatus();
+            if (status == Status.done) {
+                return  taskGlavs[i];
+            }
+        }
+        return  null;
+
     }
 }

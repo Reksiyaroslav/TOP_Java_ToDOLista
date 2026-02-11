@@ -11,16 +11,19 @@ public class TaskManager {
     public void  Update_tas()
     { int count = 0;
         for (int i = 0; i < this.taskGlavs.length; i++) {
-           TaskDeler[] task_del=taskGlavs[i].getTaskDelers();
-           utils.Update_status(task_del,count);
-           this.taskGlavs[i].setTaskDelers(task_del);
-           TaskGlav[] taskGlavs1 = utils.Status_Task(this.taskGlavs);
-           setTaskGlavs(taskGlavs1);
-           count++;
-           if (i == 1)
-           {
-               utils.Update_status(taskGlavs[i].getTaskDelers(),count);
-           }
+            if (i == 1)
+            {count++;
+                utils.Update_status(taskGlavs[i].getTaskDelers(),count);
+            }
+            else{
+                TaskDeler[] task_del = taskGlavs[i].getTaskDelers();
+                utils.Update_status(task_del, count);
+                this.taskGlavs[i].setTaskDelers(task_del);
+                TaskGlav[] taskGlavs1 = utils.Status_Task(this.taskGlavs);
+                setTaskGlavs(taskGlavs1);
+            }
+
+
         }
 
     }

@@ -1,8 +1,11 @@
 package work;
 
+import java.util.Comparator;
 import java.util.Objects;
+//TODO userd Comparable<Task>
+// implements Comparable<Task>
 
-public abstract class Task implements  Comparable<Task> {
+public abstract class Task  {
     private Integer id = 1;
     private String name_task = "New work";
     private Status status = Status.new_task;
@@ -24,6 +27,10 @@ public abstract class Task implements  Comparable<Task> {
         this.status = status;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Task task)) return false;
@@ -43,8 +50,10 @@ public abstract class Task implements  Comparable<Task> {
                 ", status=" + status + '}'+"\n";
     }
 
-    @Override
-    public int compareTo(Task o) {
-        return Integer.compare(this.id,o.id);
-    }
+//    @Override
+//    public int compareTo(Task o) {
+//        return Integer.compare(this.id,o.id);
+//    }
+
+
 }

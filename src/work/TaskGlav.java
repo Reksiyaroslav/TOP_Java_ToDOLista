@@ -12,6 +12,7 @@ public class TaskGlav extends  Task{
         }
 
     }
+
     @Override
     public void  Show() {
         super.Show();
@@ -46,5 +47,6 @@ public class TaskGlav extends  Task{
     public int hashCode() {
         return Objects.hash(super.hashCode(), Arrays.hashCode(taskDelers));
     }
+
 
 }
