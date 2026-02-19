@@ -1,11 +1,10 @@
 package work;
 
-import java.util.Comparator;
 import java.util.Objects;
-//TODO userd Comparable<Task>
+//TODO userd Comparabl  e<Task>
 // implements Comparable<Task>
 
-public abstract class Task  {
+public abstract class Task  implements BonusTask {
     private Integer id = 1;
     private String name_task = "New work";
     private Status status = Status.new_task;
@@ -30,6 +29,17 @@ public abstract class Task  {
     public Integer getId() {
         return id;
     }
+    public  void Show_status(){
+        if(this.getStatus() == Status.new_task){
+            System.out.println("Такст нова такска ");
+        }else if (this.getStatus() ==Status.inprogers){
+            System.out.println("Task inprogers ");
+
+        }else
+        {
+            System.out.println("Task correct done");
+        }
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -50,7 +60,8 @@ public abstract class Task  {
                 ", status=" + status + '}'+"\n";
     }
 
-//    @Override
+
+    //    @Override
 //    public int compareTo(Task o) {
 //        return Integer.compare(this.id,o.id);
 //    }

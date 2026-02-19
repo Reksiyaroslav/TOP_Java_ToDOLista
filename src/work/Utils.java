@@ -1,85 +1,87 @@
 package work;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
 public class Utils {
     // не работает коректоно
-    public TaskGlav[] Status_Task(TaskGlav[] taskGlavs){
-
-        for (int i = 0; i < taskGlavs.length ; i++) {
-            Integer count = count_task_suces(taskGlavs[i]);
-            if (taskGlavs[i].getTaskDelers().length>1)
+    public ArrayList<TaskGlav> Status_Task(ArrayList<TaskGlav> taskGlavs){
+        if (taskGlavs==null) return null;
+        for (TaskGlav taskGlav : taskGlavs) {
+            Integer count = count_task_suces(taskGlav);
+            if (taskGlav.getTaskDelers().size()>1)
             {
-                taskGlavs[i].setStatus(Status.inprogers);
-
+                taskGlav.setStatus(Status.inprogers);
             }
-            if (count==taskGlavs[i].getTaskDelers().length) {
-                taskGlavs[i].setStatus(Status.done);
-
-
+            if (count==taskGlav.getTaskDelers().size()) {
+                taskGlav.setStatus(Status.done);
             }
-
         }
-
         return  taskGlavs;
-
     }
-    public Integer count_task_suces(TaskGlav taskGlavs)
+    public Integer count_task_suces(TaskGlav taskGlav)
     { Integer count = 0;
-
-            for (int j = 0; j < taskGlavs.getTaskDelers().length; j++) {
-                TaskDeler[] taskDelers = taskGlavs.getTaskDelers();
-                if (taskDelers[j].getStatus() == Status.done)
-                {
+        if(taskGlav==null) return  0;
+        else{
+            for (TaskDeler taskDeler : taskGlav.getTaskDelers()) {
+                if (taskDeler.getStatus()==Status.done){
                     count++;
                 }
+
             }
+        }
+
         return  count;
     }
 
 
 
-    public  void Update_status(TaskDeler[] taskDelers,Integer count ){
-        for (int i = 0; i < taskDelers.length; i++) {
-
-
+    public  void Update_status(ArrayList<TaskDeler> taskDelers, Integer count){
+        Integer i= 0;
+        if (taskDelers==null) return;
+        for (TaskDeler taskDeler : taskDelers) {
             if(count ==1)
             {// сдесб не должно быть вызов это стуки протсо  нужно было else дописать
                 // и сделать при там break при i == 3 чтобы он не записал кортное число
                 // чтобы сделать вид что у нас толтко несколько выполднены
-
-
                 if (i ==2)
                 {
                     break;
                 }
                 else
-                {
-                    taskDelers[i].setStatus(Status.done);
+                {   taskDeler.Show_status();
+                    taskDeler.setStatus(Status.done);
+                    i++;
                 }
             }
             else
             {
-                taskDelers[i].setStatus(Status.done);
+                taskDeler.setStatus(Status.done);
+                taskDeler.Show_status();
             }
         }
     }
     public  static void Sort(TaskManager taskManager){
         Comparator<Task> comparator = Comparator.comparing(Task::getStatus);
-        for (int i = 0; i < taskManager.getTaskGlavs().length; i++) {
-            Arrays.sort(taskManager.getTaskGlavs(), comparator);
-            Arrays.sort(taskManager.getTaskGlavs()[i].getTaskDelers(), comparator);
-
+        taskManager.getTaskGlavs().sort(comparator);
+        if( taskManager.getTaskGlavs()==null) return;
+        for (TaskGlav taskGlav : taskManager.getTaskGlavs()) {
+            taskGlav.getTaskDelers().sort(comparator);
         }
     }
-    static public TaskGlav acherv(TaskGlav[] taskGlavs)
+    static public TaskGlav acherv(ArrayList<TaskGlav> taskGlavs)
     {
-
-        for (int i = 0; i < taskGlavs.length; i++) {
-            Status status = taskGlavs[i].getStatus();
-            if (status == Status.done) {
-                return  taskGlavs[i];
+        System.out.println("\nВ архиве вот така такска");
+        if(taskGlavs ==null) {
+            return  null;
+        }
+        else {
+            for (TaskGlav taskGlav : taskGlavs) {
+                Status status = taskGlav.getStatus();
+                if (status == Status.done) {
+                    return taskGlav;
+                }
             }
         }
         return  null;

@@ -2,12 +2,12 @@ package work;
 
 public class TaskDataDeler {
 
-    private TaskDeler taskDeler1 = new TaskDeler("Oler mom ",1) ;
-    private TaskDeler taskDeler2 = new TaskDeler("Oler mom ",3) ;
-    private TaskDeler taskDeler3 = new TaskDeler("Oler mom ",2) ;
-    private  TaskDeler taskDeler4 = new TaskDeler("Oler mom ",3) ;
-    private  TaskDeler taskDeler5 = new TaskDeler("Oler mom ",1) ;
-    private TaskDeler taskDeler6 = new TaskDeler("Oler mom ",2) ;
+    private TaskDeler taskDeler1 = new TaskDeler("Купить бентли ",1) ;
+    private TaskDeler taskDeler2 = new TaskDeler("Зделасть план бизнеса ",3) ;
+    private TaskDeler taskDeler3 = new TaskDeler("Море воды випить ",2) ;
+    private  TaskDeler taskDeler4 = new TaskDeler("Посмотреть сериал ",3) ;
+    private  TaskDeler taskDeler5 = new TaskDeler("Зделать кран ",1) ;
+    private TaskDeler taskDeler6 = new TaskDeler("Сделать или начать диплом",2) ;
 
 
 

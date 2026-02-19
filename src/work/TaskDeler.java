@@ -24,5 +24,14 @@ public class TaskDeler extends  Task{
         return super.equals(o);
     }
 
+    @Override
+    public void Show_status() {
+        System.out.println("TaskDelever progress");
+        super.Show_status();
+    }
 
+    @Override
+    public Integer sum_tast() {
+        return 0;
+    }
 }
