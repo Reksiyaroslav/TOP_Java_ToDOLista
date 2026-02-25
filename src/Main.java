@@ -1,29 +1,51 @@
-import work.Master;
+import tasmaneger.*;
 import work.TaskDataArrayList;
-import work.TaskGlav;
-import work.TaskManager;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-import static work.Utils.Sort;
-import static work.Utils.acherv;
+import static tasmaneger.Utilss_Task.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         TaskDataArrayList taskDataArayGlava = new TaskDataArrayList();
+        Utilss_Task  utilssTask = new Utilss_Task();
+        Utilas_pay utilasPay = new Utilas_pay();
         taskDataArayGlava.inti_task();
-//        Master master= new Master("lore","moler",40,"Static eleg");
-//        Master[] masters = new Master[]{};
-        TaskManager taskManager;
-        taskManager = new TaskManager(taskDataArayGlava.getArrayGlavs());
-        taskManager.Update_tas();
-        Sort(taskManager);
-        System.out.print(taskManager.getTaskGlavs().toString());
-        System.out.println(acherv(taskManager.getTaskGlavs()));
-//        String  title_areare="Квратиры";
+        ArrayList<TaskDeler> taskDelerArrayList = new ArrayList<>();
+        taskDelerArrayList.add(new TaskDeler("Сдлетаь раковлению ",1));
+        taskDelerArrayList.add(new TaskDeler("Сдлетаь пароливрлав ",2));
+        TaskGlav taskGlav = new TaskGlav("Туалет",1,20);
+        taskGlav.AddSubs(taskDelerArrayList);
+        Master master = new Master("Olerg","Moler",40,12,0,"сантехник");
+        Client client = new Client("Oler","Roler",50,16,400);
+        utilasPay.master_addMoney_Client_remove(master,client);
+        client.addTask(taskGlav);
+        client.givesTask_The_Master(master,1);
+        System.out.println(master);
+        System.out.println(client);
+        utilssTask.Update_Tasl(master.getTaskGlavs());
+        utilasPay.master_addMoney_Client_remove(master,client);
+        System.out.println(master);
+        System.out.println(client);
+        System.out.print(client.getTaskGlavs().toString());
+        System.out.println(achev(client.getTaskGlavs()));
+
+    }
+    /// создать магазин котторые будет выводить уже готовый продукт вот функци вывода должа быть стаиеским и несколько класов один шитате функий
+    /// 1- enum  три мода inprogers  new  dan
+    /// 2 - сделай  два массивы  где есть глана задаа и от него есть  базовые действи
+    /// другой   провеку тобы если оно новео то пока такски не сделаны если уже делаетс то нужно наать закакниввать доплнительные такски
+    ///  то закрывает
+    ///  comtetor
+    /// новый метод которы оправлетс в архив
+
+    /// 1 -мастер и персон  клиент от персона
+    ///  2 -  массив или когото одна зада  одал зада  нова зада
+
+
+    //        String  title_areare="Квратиры";
 //        Integer with_apartment = 20;
 //        Integer length_apartment = 40;
 //        Integer S_apartment = with_apartment*length_apartment;
@@ -41,12 +63,4 @@ public class Main {
 //        {
 //            System.out.println(String.format("Назавание %s",title));
 //        }
-    }
-    /// создать магазин котторые будет выводить уже готовый продукт вот функци вывода должа быть стаиеским и несколько класов один шитате функий
-    /// 1- enum  три мода inprogers  new  dan
-    /// 2 - сделай  два массивы  где есть глана задаа и от него есть  базовые действи
-    /// другой   провеку тобы если оно новео то пока такски не сделаны если уже делаетс то нужно наать закакниввать доплнительные такски
-    ///  то закрывает
-    ///  comtetor
-    /// новый метод которы оправлетс в архив
 }
