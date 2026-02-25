@@ -1,5 +1,5 @@
-package work;
+package tasmaneger;
 
-public interface BonusTask {
-      public  Integer sum_tast();
+public interface Finalsen {
+      boolean cheage_money(Integer amount);
 }
