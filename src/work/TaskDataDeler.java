@@ -1,5 +1,7 @@
 package work;
 
+import tasmaneger.TaskDeler;
+
 public class TaskDataDeler {
 
     private TaskDeler taskDeler1 = new TaskDeler("Купить бентли ",1) ;

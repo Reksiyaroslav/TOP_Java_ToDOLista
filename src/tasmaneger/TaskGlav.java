@@ -1,37 +1,44 @@
-package work;
+package tasmaneger;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 
 public class TaskGlav extends  Task{
-    private ArrayList<TaskDeler> taskDelers =new ArrayList<TaskDeler>();
+    private  ArrayList<TaskDeler> taskDelerArrayList = new ArrayList<TaskDeler>();
     private  Integer pointe =0;
-    public  TaskGlav(String name_task,Integer id ,ArrayList<TaskDeler>  data){
+    public  TaskGlav(String name_task, Integer id,Integer pointer){
         super(id,name_task);
-        this.taskDelers = data;
+        this.pointe = pointer;
+
+    }
+    public void  AddSub(TaskDeler taskDeler){
+        this.taskDelerArrayList.add(taskDeler);
+    }
+    public  void AddSubs(ArrayList<TaskDeler> taskDelers){
+        this.taskDelerArrayList.addAll(taskDelers);
+
 
     }
 
     @Override
     public void  Show() {
         super.Show();
-        for (TaskDeler taskDeler : taskDelers) {
+        for (TaskDeler taskDeler : taskDelerArrayList) {
             taskDeler.Show();
         }
     }
 
     public ArrayList<TaskDeler>  getTaskDelers() {
-        return taskDelers;
+        return taskDelerArrayList;
     }
 
     public void setTaskDelers(ArrayList<TaskDeler>  taskDelers) {
-        this.taskDelers = taskDelers;
+        this.taskDelerArrayList = taskDelers;
     }
     @Override
     public void Show_status() {
         System.out.println("Task glav");
-        for (TaskDeler taskDeler : taskDelers) {
+        for (TaskDeler taskDeler : taskDelerArrayList) {
             taskDeler.Show_status();
         }
         super.Show_status();
@@ -41,21 +48,22 @@ public class TaskGlav extends  Task{
     public boolean equals(Object o) {
         if (!(o instanceof TaskGlav taskGlav)) return false;
         if (!super.equals(o)) return false;
-        return Objects.equals(taskDelers, taskGlav.taskDelers) && Objects.equals(pointe, taskGlav.pointe);
+        return Objects.equals(taskDelerArrayList, taskGlav.taskDelerArrayList) && Objects.equals(pointe, taskGlav.pointe);
     }
 
     @Override
     public String toString() {
         return "TaskGlav{" +
+                " tittle " + this.getName_task()+
                 " status " +this.getStatus()+"\n"+
-                "taskDelers=" + taskDelers +
+                "taskDelers=" + taskDelerArrayList +
                 ", pointe=" + pointe +
                 '}';
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), taskDelers, pointe);
+        return Objects.hash(super.hashCode(), taskDelerArrayList, pointe);
     }
 
     public Integer getPointe() {
@@ -65,18 +73,7 @@ public class TaskGlav extends  Task{
     public void setPointe(Integer pointe) {
         this.pointe = pointe;
     }
-    @Override
-    public Integer sum_tast() {
-        int sum = 0;
-        for (TaskDeler taskDeler : taskDelers) {
-            if (taskDeler.getStatus() == Status.done) {
-                sum += 30;
-            }
-        }
 
-        this.setPointe(sum);
-        return sum;
-    }
 }
 
 

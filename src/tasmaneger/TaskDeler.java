@@ -1,4 +1,4 @@
-package work;
+package tasmaneger;
 
 public class TaskDeler extends  Task{
     public TaskDeler(String name_task,Integer id){
@@ -28,10 +28,5 @@ public class TaskDeler extends  Task{
     public void Show_status() {
         System.out.println("TaskDelever progress");
         super.Show_status();
-    }
-
-    @Override
-    public Integer sum_tast() {
-        return 0;
     }
 }
