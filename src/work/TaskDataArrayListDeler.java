@@ -1,5 +1,7 @@
 package work;
 
+import tasmaneger.TaskDeler;
+
 import java.util.ArrayList;
 
 public class TaskDataArrayListDeler {

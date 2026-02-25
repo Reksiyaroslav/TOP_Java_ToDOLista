@@ -1,5 +1,7 @@
 package work;
 
+import tasmaneger.Task;
+
 import java.util.Comparator;
 
 public class TaskComparotor  implements Comparator<Task> {

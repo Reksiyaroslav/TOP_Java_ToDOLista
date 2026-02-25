@@ -1,7 +1,8 @@
 package work;
 
+import tasmaneger.TaskDeler;
+
 import java.util.ArrayList;
-import java.util.Random;
 
 public class TaskIArrayListDelerInint {
     private  TaskDataDeler taskDataDeler = new TaskDataDeler();

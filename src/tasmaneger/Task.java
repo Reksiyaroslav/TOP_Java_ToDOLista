@@ -1,10 +1,10 @@
-package work;
+package tasmaneger;
 
 import java.util.Objects;
 //TODO userd Comparabl  e<Task>
 // implements Comparable<Task>
 
-public abstract class Task  implements BonusTask {
+public abstract class Task   {
     private Integer id = 1;
     private String name_task = "New work";
     private Status status = Status.new_task;
@@ -20,6 +20,10 @@ public abstract class Task  implements BonusTask {
 
     public Status getStatus() {
         return status;
+    }
+
+    public String getName_task() {
+        return name_task;
     }
 
     public void setStatus(Status status) {
