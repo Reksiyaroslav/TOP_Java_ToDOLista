@@ -1,24 +1,19 @@
-package work;
+package tasmaneger;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 
-public class Utils {
-    // не работает коректоно
-    public ArrayList<TaskGlav> Status_Task(ArrayList<TaskGlav> taskGlavs){
-        if (taskGlavs==null) return null;
-        for (TaskGlav taskGlav : taskGlavs) {
-            Integer count = count_task_suces(taskGlav);
-            if (taskGlav.getTaskDelers().size()>1)
-            {
+public abstract class  AbUtils implements Utilss {
+    public TaskGlav Status_Task(TaskGlav taskGlav){
+        if (taskGlav==null) return null;
+        var count = count_task_suces(taskGlav);
+            if (taskGlav.getTaskDelers().size()>1){
                 taskGlav.setStatus(Status.inprogers);
             }
             if (count==taskGlav.getTaskDelers().size()) {
                 taskGlav.setStatus(Status.done);
             }
-        }
-        return  taskGlavs;
+        return  taskGlav;
     }
     public Integer count_task_suces(TaskGlav taskGlav)
     { Integer count = 0;
@@ -62,11 +57,10 @@ public class Utils {
             }
         }
     }
-    public  static void Sort(TaskManager taskManager){
+    public  static void Sort(ArrayList<TaskGlav> taskGlavs){
         Comparator<Task> comparator = Comparator.comparing(Task::getStatus);
-        taskManager.getTaskGlavs().sort(comparator);
-        if( taskManager.getTaskGlavs()==null) return;
-        for (TaskGlav taskGlav : taskManager.getTaskGlavs()) {
+        if( taskGlavs==null) return;
+        for (TaskGlav taskGlav : taskGlavs) {
             taskGlav.getTaskDelers().sort(comparator);
         }
     }

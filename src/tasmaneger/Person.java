@@ -1,28 +1,28 @@
-package work;
+package tasmaneger;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public abstract  class Person {
     private String lname = "";
     private  String fname ="";
     private  Integer age =0;
-    private  ArrayList<TaskGlav> taskGlavs = new ArrayList<TaskGlav>();
-    Person(String lname,String fname,Integer age,ArrayList<TaskGlav>  taskGlavs){
+    private Integer Id = 0;
+    private ArrayList<TaskGlav> taskGlavs = new ArrayList<>();
+    private Integer money =0;
+    Person(String lname,String fname,Integer age,Integer id,Integer money){
         this.fname = fname;
         this.lname = lname;
         this.age = age;
-        this.taskGlavs = taskGlavs;
+        this.money = money;
+        this.Id = id;
+    }
+    public void addTask(TaskGlav taskGlav){
+        this.taskGlavs.add(taskGlav);
     }
 
-    public ArrayList<TaskGlav> getTaskGlavs() {
-        return taskGlavs;
-    }
-
-    public void setTaskGlavs(ArrayList<TaskGlav> taskGlavs) {
-        this.taskGlavs = taskGlavs;
-    }
 
     public Integer getAge() {
         return this.age;
@@ -40,13 +40,19 @@ public abstract  class Person {
         return lname;
     }
 
+    public ArrayList<TaskGlav> getTaskGlavs() {
+        return taskGlavs;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "lname='" + lname + '\'' +
                 ", fname='" + fname + '\'' +
                 ", age=" + age +
+                ", Id=" + Id +
                 ", taskGlavs=" + taskGlavs +
+                ", money=" + money +
                 '}';
     }
 
@@ -59,5 +65,13 @@ public abstract  class Person {
     @Override
     public int hashCode() {
         return Objects.hash(lname, fname, age);
+    }
+
+    public Integer getMoney() {
+        return this.money;
+    }
+
+    public void setMoney(Integer money) {
+        this.money = money;
     }
 }
