@@ -1,5 +1,5 @@
 package tasmaneger;
-
-public interface SpendMoney {
+@FunctionalInterface
+public interface SpendMoney   {
     public Integer remove_money(Integer amount);
 }

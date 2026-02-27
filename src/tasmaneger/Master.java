@@ -2,7 +2,7 @@ package tasmaneger;
 
 import java.util.Objects;
 
-public class Master extends Person implements AddMoney,Finalsen  {
+public class Master extends Person implements Finalsen  {
     private String type_master ="";
     public  Master(String lname,String fname,Integer age,Integer id,Integer money,String type_master){
         super(lname,fname,age,id,money);
@@ -36,13 +36,21 @@ public class Master extends Person implements AddMoney,Finalsen  {
 
     @Override
     public Integer add_money(Integer amount) {
-        this.setMoney(this.getMoney()+amount);
-        return amount;
+        return 0;
     }
 
     @Override
     public boolean cheage_money(Integer amount) {
         return this.getMoney() != this.getMoney() - amount;
+    }
+
+    @Override
+    public Integer remove_money(Integer amount) {
+        if(this.getMoney()>=amount) {
+            this.setMoney(this.getMoney() - amount);
+            return amount;
+        }
+        return  0;
     }
 
 

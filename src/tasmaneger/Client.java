@@ -1,11 +1,16 @@
 package tasmaneger;
 
-public class Client extends  Person implements SpendMoney,Finalsen{
+public class Client extends  Person implements Finalsen{
     public Client(String lname, String fname, Integer age, Integer id, Integer money) {
         super(lname, fname, age, id,money);
     }
     public String toString() {
-        return super.toString();
+        return "Client {" +
+                "lname=" +getLname()+
+                ",fname= " +getFname()+
+                ",money=" + getMoney()+
+                ",clientTask=" + '\n'+getTaskGlavs()+
+                "}";
     }
     @Override
     public void addTask(TaskGlav taskGlav) {
@@ -14,6 +19,17 @@ public class Client extends  Person implements SpendMoney,Finalsen{
     public  void givesTask_The_Master(Master master,Integer id){
         Integer curen_id_object = id-1;
         master.addTask(this.getTaskGlavs().get(curen_id_object));
+    }
+
+
+    @Override
+    public Integer add_money(Integer amount) {
+        return  0;
+    }
+
+    @Override
+    public boolean cheage_money(Integer amount) {
+        return false;
     }
 
     @Override
@@ -27,9 +43,6 @@ public class Client extends  Person implements SpendMoney,Finalsen{
 
 
 
-    @Override
-    public boolean cheage_money(Integer amount) {
-        return this.getMoney()!= this.getMoney()-amount;
-    }
+
 
 }
