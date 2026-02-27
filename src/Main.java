@@ -1,5 +1,6 @@
 import tasmaneger.*;
 import work.TaskDataArrayList;
+import work.TaskDataArrayListDeler;
 
 import java.util.ArrayList;
 
@@ -9,15 +10,12 @@ import static tasmaneger.Utilss_Task.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        TaskDataArrayList taskDataArayGlava = new TaskDataArrayList();
+        TaskDataArrayListDeler  taskDataArrayListDeler = new TaskDataArrayListDeler();
+        taskDataArrayListDeler.init_TaskDelerArrayList();
         Utilss_Task  utilssTask = new Utilss_Task();
         Utilas_pay utilasPay = new Utilas_pay();
-        taskDataArayGlava.inti_task();
-        ArrayList<TaskDeler> taskDelerArrayList = new ArrayList<>();
-        taskDelerArrayList.add(new TaskDeler("Сдлетаь раковлению ",1));
-        taskDelerArrayList.add(new TaskDeler("Сдлетаь пароливрлав ",2));
-        TaskGlav taskGlav = new TaskGlav("Туалет",1,20);
-        taskGlav.AddSubs(taskDelerArrayList);
+        TaskGlav taskGlav = new TaskGlav("Туалет",1,200);
+        taskGlav.AddSubs(taskDataArrayListDeler.getTaskDelerArrayList());
         Master master = new Master("Olerg","Moler",40,12,0,"сантехник");
         Client client = new Client("Oler","Roler",50,16,400);
         utilasPay.master_addMoney_Client_remove(master,client);
