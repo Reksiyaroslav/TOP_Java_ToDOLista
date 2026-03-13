@@ -35,8 +35,13 @@ public class Master extends Person implements Finalsen  {
     }
 
     @Override
-    public Integer add_money(Integer amount) {
-        return 0;
+    public Integer add_money(Integer amount) throws MyExepts {
+        if(amount<=0) {
+            throw new MyExepts("Сумма должна быть больше");
+        }
+        this.setMoney(this.getMoney()+amount);
+        return  amount;
+
     }
 
     @Override
@@ -45,11 +50,9 @@ public class Master extends Person implements Finalsen  {
     }
 
     @Override
-    public Integer remove_money(Integer amount) {
-        if(this.getMoney()>=amount) {
-            this.setMoney(this.getMoney() - amount);
-            return amount;
-        }
+    public Integer remove_money(Integer amount) throws MyExepts {
+
+
         return  0;
     }
 
