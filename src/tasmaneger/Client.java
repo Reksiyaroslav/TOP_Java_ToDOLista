@@ -6,6 +6,9 @@ public class Client extends  Person implements Finalsen{
     public Client(String lname, String fname, Integer age, Integer id, Integer money) {
         super(lname, fname, age, id,money);
     }
+    public Client() {
+        super("lname", "fname", 12, 2,10);
+    }
     public String toString() {
         return "Client {" +
                 "lname=" +getLname()+

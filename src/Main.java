@@ -20,7 +20,7 @@ public class Main {
         Utilss_Task  utilssTask = new Utilss_Task();
         Utilas_pay utilasPay = new Utilas_pay();
         TaskGlav taskGlav1 = new TaskGlav("Туалет",1,200);
-        TaskGlav taskGlav2 = new TaskGlav("Водопровот",1,10);
+        TaskGlav taskGlav2 = new TaskGlav("Водопровот",2,10);
         taskGlav1.AddSubs(taskDataArrayListDeler.getTaskDelerArrayList());
         taskGlav2.AddSubs(taskDataArrayListDeler.getTaskDelerArrayList());
         Master master = new Master("Olerg","Moler",40,12,0,"сантехник");

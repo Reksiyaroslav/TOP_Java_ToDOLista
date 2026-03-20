@@ -8,6 +8,10 @@ public class Master extends Person implements Finalsen  {
         super(lname,fname,age,id,money);
         this.type_master = type_master;
     }
+    public  Master(){
+        super("lname","fname",10,1,20);
+        this.type_master = "Сваршик";
+    }
 
     @Override
     public void addTask(TaskGlav taskGlav) {

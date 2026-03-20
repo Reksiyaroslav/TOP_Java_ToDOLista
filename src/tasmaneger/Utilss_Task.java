@@ -77,8 +77,10 @@ public class Utilss_Task extends  AbUtils{
         return  count;
     }
 
-    static  public TaskGlav achev(ArrayList<TaskGlav> taskGlavArrayList) {
-        System.out.println("\nВ архиве вот така такска");
+    static  public ArrayList<TaskGlav> achev(ArrayList<TaskGlav> taskGlavArrayList) {
+
+
+        ArrayList<TaskGlav> achev_task = new ArrayList<>();
         if(taskGlavArrayList ==null) {
             return  null;
         }
@@ -86,10 +88,15 @@ public class Utilss_Task extends  AbUtils{
             for (TaskGlav taskGlav : taskGlavArrayList) {
                 Status status = taskGlav.getStatus();
                 if (status == Status.done) {
-                    return taskGlav;
+                    achev_task.add(taskGlav);
                 }
             }
         }
+        if (achev_task.size()>0){
+            System.out.println("\nВ архиве вот така такска");
+            return achev_task;
+        }
+        System.out.println("\nВ архиве нет тасок  ");
         return  null;
     }
 
